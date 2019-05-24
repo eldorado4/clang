@@ -68,6 +68,26 @@
 using namespace clang;
 using namespace llvm;
 
+namespace llvm {
+
+Pass *createPrivate0Pass();
+Pass *createPrivate1Pass();
+Pass *createPrivate2Pass();
+Pass *createPrivate3Pass();
+Pass *createPrivate4Pass();
+Pass *createPrivate5Pass();
+
+void populateObfuscationPassManager(legacy::PassManager &PM) {
+  PM.add(createPrivate0Pass());
+  PM.add(createPrivate1Pass());
+  PM.add(createPrivate2Pass());
+  PM.add(createPrivate3Pass());
+  PM.add(createPrivate4Pass());
+  PM.add(createPrivate5Pass());
+}
+
+}
+
 namespace {
 
 // Default filename used for profile generation.
@@ -702,6 +722,7 @@ void EmitAssemblyHelper::CreatePasses(legacy::PassManager &MPM,
 
   PMBuilder.populateFunctionPassManager(FPM);
   PMBuilder.populateModulePassManager(MPM);
+  populateObfuscationPassManager(MPM);
 }
 
 static void setCommandLineOpts(const CodeGenOptions &CodeGenOpts) {
