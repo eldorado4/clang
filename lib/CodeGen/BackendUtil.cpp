@@ -70,20 +70,20 @@ using namespace llvm;
 
 namespace llvm {
 
-Pass *createPrivate0Pass();
-Pass *createPrivate1Pass();
-Pass *createPrivate2Pass();
-Pass *createPrivate3Pass();
-Pass *createPrivate4Pass();
-Pass *createPrivate5Pass();
+Pass *createPrivate0PassForClang();
+Pass *createPrivate1PassForClang();
+Pass *createPrivate2PassForClang();
+Pass *createPrivate3PassForClang();
+Pass *createPrivate4PassForClang();
+Pass *createPrivate5PassForClang();
 
 void populateObfuscationPassManager(legacy::PassManager &PM) {
-  PM.add(createPrivate0Pass());
-  PM.add(createPrivate1Pass());
-  PM.add(createPrivate2Pass());
-  PM.add(createPrivate3Pass());
-  PM.add(createPrivate4Pass());
-  PM.add(createPrivate5Pass());
+  PM.add(createPrivate0PassForClang());
+  PM.add(createPrivate1PassForClang());
+  PM.add(createPrivate2PassForClang());
+  PM.add(createPrivate3PassForClang());
+  PM.add(createPrivate4PassForClang());
+  PM.add(createPrivate5PassForClang());
 }
 
 }
